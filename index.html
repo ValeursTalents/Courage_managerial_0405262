@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formation Le Courage Managérial - Réconcilier bienveillance et exigence. Formation présentielle de 4 heures pour managers intermédiaires.">
+    <title>Le Courage Managérial - Formation Valeurs & Talents</title>
+    <style>
+        /* === VARIABLES CSS - CHARTE VALEURS & TALENTS === */
+        :root {
+            --vert-principal: #94c11f;
+            --marron: #473c32;
+            --orange: #ee7601;
+            --gris-fonce: #333333;
+            --gris-clair: #f5f5f5;
+            --blanc: #ffffff;
+            --noir: #1a1a1a;
+            --ombre-legere: 0 2px 8px rgba(0,0,0,0.1);
+            --ombre-moyenne: 0 4px 16px rgba(0,0,0,0.15);
+            --transition: all 0.3s ease;
+        }
+        
+        /* === RESET & BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Calibri, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--gris-fonce);
+            background-color: var(--blanc);
+            font-size: 18px;
+        }
+        
+        /* === ACCESSIBILITÉ === */
+        a:focus, button:focus, summary:focus {
+            outline: 3px solid var(--orange);
+            outline-offset: 2px;
+        }
+        
+        /* === HEADER === */
+        header {
+            background: linear-gradient(135deg, var(--marron) 0%, #5a4d42 100%);
+            color: var(--blanc);
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: var(--ombre-moyenne);
+        }
+        
+        .logo-container {
+            margin-bottom: 2rem;
+        }
+        
+        .logo-container img {
+            max-width: 200px;
+            height: auto;
+            filter: brightness(0) invert(1);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .sous-titre {
+            font-size: 1.6rem;
+            font-style: italic;
+            color: var(--vert-principal);
+            margin-bottom: 1.5rem;
+        }
+        
+        .accroche {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        
+        /* === BANNIÈRE THÉMATIQUE === */
+        .banniere {
+            background: linear-gradient(135deg, var(--vert-principal) 0%, #7aa018 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .banniere::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><path d="M0,200 Q300,100 600,200 T1200,200 L1200,400 L0,400 Z" fill="rgba(255,255,255,0.05)"/></svg>') no-repeat center center;
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        .banniere-contenu {
+            position: relative;
+            z-index: 1;
+            color: var(--blanc);
+        }
+        
+        .banniere h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .banniere p {
+            font-size: 1.3rem;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        /* === CONTAINER PRINCIPAL === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            color: var(--marron);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 4px solid var(--vert-principal);
+            font-weight: bold;
+        }
+        
+        h3 {
+            font-size: 1.6rem;
+            color: var(--marron);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+        }
+        
+        /* === INFORMATIONS PRATIQUES === */
+        .info-pratiques {
+            background-color: var(--gris-clair);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border-left: 6px solid var(--orange);
+            box-shadow: var(--ombre-legere);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+        
+        .info-icon {
+            font-size: 2rem;
+            color: var(--orange);
+            min-width: 40px;
+        }
+        
+        .info-item strong {
+            display: block;
+            color: var(--marron);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        /* === PROGRAMME - ACCORDÉON === */
+        .accordeon {
+            border: 2px solid var(--vert-principal);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+        
+        details {
+            border-bottom: 1px solid #d0d0d0;
+        }
+        
+        details:last-child {
+            border-bottom: none;
+        }
+        
+        summary {
+            background: linear-gradient(to right, var(--vert-principal), #7aa018);
+            color: var(--blanc);
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            font-size: 1.3rem;
+            font-weight: bold;
+            list-style: none;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        summary::after {
+            content: "+";
+            position: absolute;
+            right: 2rem;
+            font-size: 2rem;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+        
+        details[open] summary::after {
+            content: "−";
+        }
+        
+        summary:hover {
+            background: linear-gradient(to right, #7aa018, var(--vert-principal));
+        }
+        
+        .accordeon-contenu {
+            padding: 2rem;
+            background-color: var(--blanc);
+        }
+        
+        .sequence-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: var(--gris-clair);
+            border-radius: 8px;
+        }
+        
+        .sequence-info div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .sequence-info strong {
+            color: var(--marron);
+        }
+        
+        /* === CARTE INTERACTIVE === */
+        .carte-container {
+            margin-top: 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--ombre-moyenne);
+            height: 450px;
+        }
+        
+        .carte-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* === VIDÉO YOUTUBE === */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Ratio 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: var(--ombre-moyenne);
+            margin-top: 2rem;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* === BOUTONS DE TÉLÉCHARGEMENT === */
+        .telechargements {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: var(--transition);
+            box-shadow: var(--ombre-legere);
+            font-family: Calibri, sans-serif;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--orange), #d66501);
+            color: var(--blanc);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #d66501, var(--orange));
+            transform: translateY(-2px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--vert-principal), #7aa018);
+            color: var(--blanc);
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #7aa018, var(--vert-principal));
+            transform: translateY(-2px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        
+        .btn-icon {
+            font-size: 1.4rem;
+        }
+        
+        /* === OBJECTIFS === */
+        .objectifs-liste {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .objectifs-liste li {
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            background-color: var(--gris-clair);
+            border-left: 5px solid var(--vert-principal);
+            border-radius: 6px;
+            position: relative;
+            padding-left: 3.5rem;
+        }
+        
+        .objectifs-liste li::before {
+            content: "✓";
+            position: absolute;
+            left: 1.2rem;
+            color: var(--vert-principal);
+            font-weight: bold;
+            font-size: 1.6rem;
+        }
+        
+        /* === ENCADRÉS === */
+        .encadre {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 6px solid var(--orange);
+            margin: 2rem 0;
+            box-shadow: var(--ombre-legere);
+        }
+        
+        .encadre h3 {
+            color: var(--orange);
+            margin-top: 0;
+        }
+        
+        /* === FOOTER === */
+        footer {
+            background-color: var(--marron);
+            color: var(--blanc);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--vert-principal);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+        
+        .footer-section p {
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-section a {
+            color: var(--vert-principal);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-section a:hover {
+            color: var(--orange);
+            text-decoration: underline;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .sous-titre {
+                font-size: 1.3rem;
+            }
+            
+            .banniere h2 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .telechargements {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            summary {
+                font-size: 1.1rem;
+                padding: 1.2rem 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* === ANIMATIONS === */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        section {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo Valeurs & Talents">
+        </div>
+        <h1>Le Courage Managérial</h1>
+        <p class="sous-titre">Réconcilier bienveillance et exigence</p>
+        <p class="accroche">
+            Une formation de 4 heures en présentiel pour accompagner les managers bienveillants dans l'incarnation du cadre managérial, sans renier leurs valeurs.
+        </p>
+    </header>
+
+    <!-- BANNIÈRE THÉMATIQUE -->
+    <div class="banniere">
+        <div class="banniere-contenu">
+            <h2>🎯 Osez incarner votre légitimité managériale</h2>
+            <p>
+                Apprenez à formuler des feedbacks assertifs, à porter des exigences claires et à adopter une posture d'autorité juste et bienveillante. Une formation concrète et pragmatique ancrée dans le réel.
+            </p>
+        </div>
+    </div>
+
+    <!-- CONTAINER PRINCIPAL -->
+    <div class="container">
+        
+        <!-- INFORMATIONS PRATIQUES -->
+        <section>
+            <h2>📋 Informations pratiques</h2>
+            <div class="info-pratiques">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-icon">📅</span>
+                        <div>
+                            <strong>Date</strong>
+                            <span>4 mai 2026 (ou à planifier selon vos besoins)</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">⏰</span>
+                        <div>
+                            <strong>Durée</strong>
+                            <span>4 heures (8h30 - 12h30)</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <strong>Lieu</strong>
+                            <span>12 rue de l'Isly, Paris</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">👥</span>
+                        <div>
+                            <strong>Public</strong>
+                            <span>Managers intermédiaires en cabinet de conseil</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">🎓</span>
+                        <div>
+                            <strong>Format</strong>
+                            <span>Présentiel chez le client</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">🧑‍🏫</span>
+                        <div>
+                            <strong>Formateur</strong>
+                            <span>Mickael Loeuille</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OBJECTIFS PÉDAGOGIQUES -->
+        <section>
+            <h2>🎯 Objectifs pédagogiques</h2>
+            <p>À l'issue de cette formation, les participants seront capables de :</p>
+            <ul class="objectifs-liste">
+                <li><strong>Comprendre les concepts clés</strong> liés au courage managérial : autorité vs autoritarisme, cadre managérial, légitimité, posture attendue dans la fonction</li>
+                <li><strong>Analyser des situations concrètes</strong> illustrant des écarts de posture managériale, et proposer des alternatives plus courageuses et structurantes</li>
+                <li><strong>Adopter une posture d'autorité juste et bienveillante</strong> en situation sensible, en mobilisant leur voix, leur regard, leur posture et leur cadre</li>
+            </ul>
+        </section>
+
+        <!-- PROGRAMME DÉTAILLÉ -->
+        <section>
+            <h2>📚 Programme détaillé</h2>
+            <p>Un parcours pédagogique progressif alternant apports théoriques, travail collaboratif et mises en situation :</p>
+            
+            <div class="accordeon">
+                <details>
+                    <summary>Introduction - Créer un climat de confiance</summary>
+                    <div class="accordeon-contenu">
+                        <div class="sequence-info">
+                            <div><strong>⏰ Horaires :</strong> 8h30 - 8h50</div>
+                            <div><strong>⏱️ Durée :</strong> 20 minutes</div>
+                            <div><strong>🎯 Méthode :</strong> Icebreaker dynamique</div>
+                        </div>
+                        <p><strong>Objectifs :</strong></p>
+                        <ul>
+                            <li>Créer un climat de confiance</li>
+                            <li>Recueillir les attentes des participants</li>
+                            <li>Présenter les objectifs de la formation</li>
+                        </ul>
+                        <p><strong>Description :</strong> Présentation croisée des participants, recueil des attentes individuelles et collectives, alignement sur les objectifs de la matinée.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Les essentiels du courage managérial</summary>
+                    <div class="accordeon-contenu">
+                        <div class="sequence-info">
+                            <div><strong>⏰ Horaires :</strong> 8h50 - 9h30</div>
+                            <div><strong>⏱️ Durée :</strong> 40 minutes</div>
+                            <div><strong>🎯 Méthode :</strong> Exposé structuré</div>
+                        </div>
+                        <p><strong>Objectifs :</strong></p>
+                        <ul>
+                            <li>Comprendre les concepts clés : autorité vs autoritarisme</li>
+                            <li>Identifier le cadre managérial et la légitimité du manager</li>
+                            <li>Clarifier les attentes de la fonction managériale</li>
+                        </ul>
+                        <p><strong>Description :</strong> Apports théoriques structurés autour des couleurs du manager, de la pyramide de Maslow appliquée au management, et de la fiche de poste managériale.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Classe inversée : analyse de situations</summary>
+                    <div class="accordeon-contenu">
+                        <div class="sequence-info">
+                            <div><strong>⏰ Horaires :</strong> 9h30 - 10h10</div>
+                            <div><strong>⏱️ Durée :</strong> 40 minutes</div>
+                            <div><strong>🎯 Méthode :</strong> Travail collaboratif en sous-groupes</div>
+                        </div>
+                        <p><strong>Objectifs :</strong></p>
+                        <ul>
+                            <li>Analyser des situations concrètes du quotidien managérial</li>
+                            <li>Identifier les écarts de posture</li>
+                            <li>Proposer des alternatives courageuses et structurantes</li>
+                        </ul>
+                        <p><strong>Description :</strong> Travail en sous-groupes sur des cas pratiques issus du terrain : consultants en sous-performance, feedbacks positifs systématiques, difficulté à demander un effort supplémentaire, gestion de comportements inadaptés.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>☕ Pause</summary>
+                    <div class="accordeon-contenu">
+                        <div class="sequence-info">
+                            <div><strong>⏰ Horaires :</strong> 10h10 - 10h30</div>
+                            <div><strong>⏱️ Durée :</strong> 20 minutes</div>
+                        </div>
+                        <p>Moment d'échange informel et de respiration dans le parcours pédagogique.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Restitution des classes inversées</summary>
+                    <div class="accordeon-contenu">
+                        <div class="sequence-info">
+                            <div><strong>⏰ Horaires :</strong> 10h30 - 11h15</div>
+                            <div><strong>⏱️ Durée :</strong> 45 minutes</div>
+                            <div><strong>🎯 Méthode :</strong> Restitution plénière + fiches outils</div>
+                        </div>
+                        <p><strong>Objectifs :</strong></p>
+                        <ul>
+                            <li>Partager les analyses et propositions des différents groupes</li>
+                            <li>Enrichir les réflexions par les apports du formateur</li>
+                            <li>Identifier les bonnes pratiques et points de vigilance</li>
+                        </ul>
+                        <p><strong>Description :</strong> Présentation des travaux de groupe en plénière, avec apports complémentaires du formateur. Remise de fiches outils pratiques pour faciliter le transfert en situation réelle.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Focus sur la posture d'autorité</summary>
+                    <div class="accordeon-contenu">
+                        <div class="sequence-info">
+                            <div><strong>⏰ Horaires :</strong> 11h15 - 12h10</div>
+                            <div><strong>⏱️ Durée :</strong> 55 minutes</div>
+                            <div><strong>🎯 Méthode :</strong> Mises en situation jouées</div>
+                        </div>
+                        <p><strong>Objectifs :</strong></p>
+                        <ul>
+                            <li>Adopter une posture d'autorité juste et bienveillante</li>
+                            <li>Mobiliser consciemment sa voix, son regard et sa gestuelle</li>
+                            <li>Transmettre clarté, confiance et légitimité dans une situation de tension</li>
+                        </ul>
+                        <p><strong>Description :</strong> Travail sur la posture d'autorité en plénière avec mises en situation jouées. Les participants expérimentent dans un cadre sécurisé différentes postures managériales et reçoivent des feedbacks constructifs.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Conclusion & Mise en action</summary>
+                    <div class="accordeon-contenu">
+                        <div class="sequence-info">
+                            <div><strong>⏰ Horaires :</strong> 12h10 - 12h20</div>
+                            <div><strong>⏱️ Durée :</strong> 10 minutes</div>
+                            <div><strong>🎯 Méthode :</strong> Déclusion et ancrage</div>
+                        </div>
+                        <p><strong>Objectifs :</strong></p>
+                        <ul>
+                            <li>Évaluer la formation</li>
+                            <li>Extraire un apprentissage clé personnel</li>
+                            <li>Définir un engagement concret d'action</li>
+                        </ul>
+                        <p><strong>Description :</strong> Évaluation à chaud (post-it + formulaire), tour de table des principaux acquis, et définition d'un plan d'action individuel pour ancrer les apprentissages dans la pratique.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- ENCADRÉ DIFFÉRENCIATION -->
+        <section>
+            <div class="encadre">
+                <h3>💡 Points clés de différenciation</h3>
+                <p><strong>Une approche équilibrée :</strong> Cette formation ne vise pas à remettre en cause la bienveillance managériale, mais à la compléter par une dimension essentielle : le courage d'incarner le cadre. Elle propose une réconciliation entre écoute, empathie, confiance ET exigence, clarté, équité.</p>
+                
+                <p><strong>Ancrage dans le réel :</strong> Les situations travaillées sont directement issues du quotidien des managers en cabinet de conseil, avec des cas concrets et des outils immédiatement transférables.</p>
+                
+                <p><strong>Bénéfices attendus :</strong> Au terme de cette formation, les managers disposeront d'une posture managériale alignée et assumée, d'outils concrets pour recadrer sans culpabiliser, et d'un sentiment de légitimité renforcé dans leur fonction.</p>
+            </div>
+        </section>
+
+        <!-- MOT DU FORMATEUR - VIDÉO -->
+        <section>
+            <h2>🎥 Mot du formateur</h2>
+            <p>Découvrez en vidéo la présentation de cette formation par Mickael Loeuille :</p>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/GwvnGoqZJ2c" 
+                    title="Présentation de la formation Le Courage Managérial"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- CARTE INTERACTIVE -->
+        <section>
+            <h2>📍 Localisation</h2>
+            <p>La formation se déroule au <strong>12 rue de l'Isly, Paris</strong> :</p>
+            <div class="carte-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.2915918186585!2d2.3241773!3d48.8753724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e3e4f9b8f3f%3A0x8ddca9ee380ef7e0!2s12%20Rue%20de%20l&#39;Isly%2C%2075008%20Paris!5e0!3m2!1sfr!2sfr!4v1620000000000!5m2!1sfr!2sfr" 
+                    loading="lazy" 
+                    title="Carte interactive - Localisation de la formation">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- TÉLÉCHARGEMENTS -->
+        <section>
+            <h2>📥 Documents à télécharger</h2>
+            <p>Retrouvez tous les documents utiles pour votre formation :</p>
+            <div class="telechargements">
+                <a href="programme.pdf" class="btn btn-primary" download>
+                    <span class="btn-icon">📄</span>
+                    <span>Programme détaillé (PDF)</span>
+                </a>
+                <a href="livret-stagiaire.pdf" class="btn btn-secondary" download>
+                    <span class="btn-icon">📖</span>
+                    <span>Livret stagiaire (PDF)</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Formateur</h3>
+                <p><strong>Mickael Loeuille</strong></p>
+                <p>📧 Email : <a href="mailto:mickael.loeuille@gmail.com">mickael.loeuille@gmail.com</a></p>
+                <p>📱 Téléphone : <a href="tel:+33681255388">06 81 25 53 88</a></p>
+                <p>💼 LinkedIn : <a href="https://www.linkedin.com/in/mickael-loeuille-5066681b/" target="_blank" rel="noopener noreferrer">Mickael Loeuille</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Valeurs & Talents</h3>
+                <p>Cabinet de conseil et de formation spécialisé en management, leadership, efficacité au travail et accompagnement professionnel.</p>
+                <p>Une approche humaine, pragmatique et orientée résultats.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Accessibilité & Handicap</h3>
+                <p>Nos formations sont accessibles aux personnes en situation de handicap.</p>
+                <p>📋 <a href="https://www.valeurs-et-talents.fr/qui-sommes-nous/nos-engagements-sur-le-handicap/" target="_blank" rel="noopener noreferrer">Politique d'inclusion et de gestion du handicap</a></p>
+                <p>N'hésitez pas à nous contacter pour toute adaptation nécessaire.</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Valeurs & Talents - Tous droits réservés | Formation professionnelle continue</p>
+        </div>
+    </footer>
+</body>
+</html>
